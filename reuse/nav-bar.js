@@ -9,18 +9,14 @@ document.write('\
                 <span class="icon-bar"></span>\
                 <span class="icon-bar"></span>\
             </button>\
-          <a class="navbar-brand" href="http://therealmgames.co.uk/index.html">Realm Games</a>\
+          <a class="navbar-brand" href="index.html">Laura Steptoe</a>\
         </div>\
         <div class="collapse navbar-collapse" id="main-navbar-collapse">\
           <ul class="nav navbar-nav navbar-right">\
-            <li><a href="gamelist.html">Games List</a></li>\
-            <li><a href="https://play.google.com/store/apps/details?id=com.RealmGames.spin">Spin</a></li>\
-            <li><a href="http://therealmgames.co.uk/beneath/beneath.html">Beneath</a></li>\
-            <li><a href="http://therealmgames.co.uk/deserted/deserted.html">Deserted</a></li>\
-            <li><a href="http://therealmgames.co.uk/gallery.html">Gallery</a></li>\
-            <li><a href="http://therealmgames.co.uk/blog/">Blog</a></li>\
-            <li><a href="https://github.com/steppers">Github</a></li>\
-            <li><a href="http://therealmgames.co.uk/about.html">About</a></li>\
+            <li><a href="prices.html">Prices</a></li>\
+            <li><a href="cuts.html">Gallery</a></li>\
+            <li><a href="studio.html">Studio</a></li>\
+            <li><a href="contact.html">Contact</a></li>\
           </ul>\
         </div>\
       </div>\

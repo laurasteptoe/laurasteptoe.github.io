@@ -1,11 +1,29 @@
 body {
   padding-top: 50px;
   padding-bottom: 30px;
+  /*background-color: #000000 !important;*/
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
+.studio {
+    margin-left: 0px;
+}
+
 .navbar-header .navbar-brand {
-  color: #E62E00;
+    font-size: 200%;
+    color: #C92E5D;
+}
+
+.pink-text {
+    color: #C92E5D;
+}
+
+.black-text {
+    color: #000000;
+}
+
+.white-text {
+    color: #FFFFFF;
 }
 
 .center {
@@ -14,23 +32,28 @@ body {
     width: 100%;
 }
 
-.carousel .item {
-  padding-top: 25px;
-  padding-bottom: 80px;
-  background-color: #ccc;
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.carousel-control {
-  font-size: 60px;
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
 }
 
-.carousel .item img{
-  width: auto;
-  height: 250px;
-  max-height: 300px;
+.black-background {
+    background-color: #000000;
 }
 
-.thumbnail {
-  width: 70%;
-  height: auto;
+.container {
+    width: 100%;
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.vcenter {
+    vertical-align: middle;
 }
