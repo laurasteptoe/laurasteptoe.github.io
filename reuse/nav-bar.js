@@ -13,6 +13,7 @@ document.write('\
         </div>\
         <div class="collapse navbar-collapse" id="main-navbar-collapse">\
           <ul class="nav navbar-nav navbar-right">\
+            <li><a href="index.html">Home</a></li>\
             <li><a href="prices.html">Prices</a></li>\
             <li><a href="cuts.html">Gallery</a></li>\
             <li><a href="studio.html">Studio</a></li>\
