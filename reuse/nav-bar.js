@@ -15,7 +15,7 @@ document.write('\
           <ul class="nav navbar-nav navbar-right">\
             <li><a href="index.html">Home</a></li>\
             <li><a href="prices.html">Prices</a></li>\
-            <li><a href="cuts.html">Gallery</a></li>\
+            <li><a href="gallery.html">Gallery</a></li>\
             <li><a href="studio.html">Studio</a></li>\
             <li><a href="contact.html">Contact</a></li>\
           </ul>\
