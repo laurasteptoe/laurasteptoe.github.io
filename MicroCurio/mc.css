@@ -1,0 +1,57 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  background-color: #f0f0f0
+}
+
+.navbar {
+    font-size: 20px;
+}
+
+.navbar-header .navbar-brand {
+    color: #5DFFAC;
+    font-size: 35px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.carousel .item {
+  padding-top: 25px;
+  padding-bottom: 80px;
+  background-color: #ccc;
+}
+
+.carousel-control {
+  font-size: 60px;
+}
+
+.carousel .item img{
+  width: auto;
+  height: 250px;
+  max-height: 300px;
+}
+
+.thumbnail {
+  width: 70%;
+  height: auto;
+}
+
+.difficulty-beginner {
+    background-color: #2EE400;
+    color: #232323
+}
+
+.difficulty-intermediate {
+    background-color: #FF8F26;
+    color: #232323
+}
+
+.difficulty-advanced {
+    background-color: #FF3223;
+    color: #232323
+}

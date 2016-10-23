@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+                                    initial-scale=1,
+                                    maximum-scale=1,
+                                    user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.png">
+
+    <title>Beneath Original - The Realm Games</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../main.css" rel="stylesheet">
+
+    <script src="../dist/jquery.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  
+    <!-- Add the navbar -->
+    <script src="../reuse/nav-bar.js"></script>
+
+    <div class="container">
+      <div class="row text-center">
+        <h3>Beneath, Original 72 hour version</h3>
+        <p>Controls at bottom of page</p>
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <center>
+          <applet code="org.lwjgl.util.applet.AppletLoader" 
+            archive="lib/lwjgl_util_applet.jar" 
+            codebase="." 
+            width="800" height="600" class="center">
+         
+            <param name="al_title" value="Applet Test"> 
+            <param name="al_main" value="org.newdawn.slick.AppletGameContainer"> 
+            <param name="game" value="Core.Game">
+           
+            <param name="al_jars" value="original.jar, lib/lwjgl.jar, lib/slick.jar"> 
+           
+            <param name="al_windows" value="native/natives-windows.jar"> 
+            <param name="al_linux" value="native/natives-linux.jar"> 
+            <param name="al_mac" value="native/natives-mac.jar"> 
+           
+            <param name="separate_jvm" value="true">
+            <param name="wmode" value="transparent">
+          </applet>
+        </div>
+      </div><!-- /row -->
+
+      <hr>
+
+      <div class="row text-center">
+        <p>CONTROLS: MOUSE(left click) and Space bar to wait one turn.</p>
+      </div>
+
+      <hr>
+
+      <div class="row text-center">
+        <p>If a java error occurs: <br> --In Windows, go to control panel and search for java. In the java menu, go to security and turn the bar down to medium temporarily.<br>
+        --In Mac, go to System Preferences and click on the java icon. In the java menu, go to security and turn the bar down to medium temporarily.<br>
+        If your java is 32-Bit then also go to Advanced, and uncheck the 'enable the next generation java plugin' option.<br>
+        (Or, just download the .jar or .exe files)<br>
+        This is due to new annoying java security preventing the lwjgl appletloader from working :(</p>
+        <p>Downloads are available <a href="beneath.html">Here.</a></p>
+      </div>
+
+      <!-- Add the footer -->
+      <script src="../reuse/footer.js"></script>
+
+    </div><!-- /container -->
+
+  </body>
+</html>

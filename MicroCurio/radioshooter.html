@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Add the head -->
+    <script src="reuse/head.js"></script>
+    <body>
+
+    <!-- Add the navbar -->
+    <script src="reuse/nav-bar.js"></script>
+
+    <div class="container">
+        <div class="row text-center">
+            <h1>Radio Shooter</h1>
+        </div>
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" width="640" height="480" src="https://www.youtube.com/embed/gwTAvNY3cdk" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="col-md-12" style="padding-top: 30px;">
+            <p>This tutorial will guide you through programming a multi-player game called Radio Shooter<br>
+            <p>We hope to make coding more interesting for you by introducing an Interactive and Competitive element.  You should be able to code a game that you can play against a friend shortly.  Enjoy!!!</p>
+            <p>This tutorial aims to introduce students to more complicated concepts, following on from the previous tutorials.</p>
+            <p>(tutorial obviosuly not complete, but code is fairly logical and would be easy to turn into a tutorial given a few hours)</p>
+            <p>All of this code is written using a variant of Python called MicroPython</p>
+            <h3>Part 1 - The Player and Movement</h3>
+            <hr>
+            <p>First we need to display a player, and the be able to move the player left or right by pressing either of the two buttons.</p>
+            <pre><code>from microbit import display, button_a, button_b
+playerX = 2
+while True:
+    display.clear()
+    display.set_pixel(playerX, 4, 9)
+</code></pre>
+            <p>The first line import the drivers for the the display and the button on the microbit.</p>
+            <p>The second line set the initial position of the player.  This position is saved into the variable 'playerX'.
+We then want to display the player's position, and continue displaying it, so we put the next section of our code into an infinite loop, using 'while True'.  And inside this loop we display the player's position by first clearing the display, then set the pixel according to the value in 'playerX'. </p>
+        <p>Next we need to move the player when either of the button is pressed .... TBC</p>
+        <hr>
+        <p>Full code shown below; convert this into hex using a micropython compiler (such as <a href="https://github.com/ntoll/mu">mu</a>) and put on your micro:bit to play- only two-player supported, connection is automatic, a and b buttons to move, tilt micro:bit forward to shoot.</p>
+        <pre><code>import radio
+from microbit import display, button_a, button_b, sleep, accelerometer
+
+playerX = 2
+enemyX = None
+
+enemyBullets = []
+playerBullets = []
+fired = False
+
+
+def fire():
+    global fired
+    fired = True
+    bullet = [playerX, 3]
+    playerBullets.append(bullet)
+    radio.send(str(playerX+5))
+
+
+def handleGun():
+    global fired
+    gesture = accelerometer.current_gesture()
+    if gesture == "face up":
+        if fired is False:
+            fire()
+    else:
+        if fired is True:
+            fired = False
+
+bulletCounter = 0
+
+
+def updateBullets():
+    global bulletCounter
+    if bulletCounter < 20:
+        bulletCounter += 1
+    else:
+        bulletCounter = 0
+        delete = []
+        for bullet in enemyBullets:
+            bullet[1] += 1
+
+            if bullet[1] == 5:
+                delete.append(bullet)
+        for bullet in delete:
+            enemyBullets.remove(bullet)
+        delete = []
+        for bullet in playerBullets:
+            bullet[1] -= 1
+            if bullet[1] == -1:
+                delete.append(bullet)
+        for bullet in delete:
+            playerBullets.remove(bullet)
+    for bullet in enemyBullets:
+        display.set_pixel(bullet[0], bullet[1], 9)
+    for bullet in playerBullets:
+        display.set_pixel(bullet[0], bullet[1], 9)
+
+
+def handleRadio():
+    global enemyX
+    rec = radio.receive()
+    if(rec == "win"):
+        win()
+    # while rec is not None
+    if rec is not None:
+        pos = int(rec[0])
+        if pos < 5:
+            enemyX = 4-pos
+        else:
+            bullet = [4-(pos-5), 1]
+            enemyBullets.append(bullet)
+
+
+def win():
+    while True:
+        display.scroll("You win!")
+
+
+def lose():
+    radio.send("win")
+    while True:
+        display.scroll("You lose...")
+
+
+
+radio.on()
+while True:
+    handleRadio()
+    if button_a.was_pressed():
+        if playerX != 0:
+            playerX -= 1
+            radio.send(str(playerX))
+
+    if button_b.was_pressed():
+        if playerX != 4:
+            playerX += 1
+            radio.send(str(playerX))
+
+    handleGun()
+
+    for bullet in enemyBullets:
+        if(bullet[1] == 4):
+            if(bullet[0]==playerX):
+                lose()
+
+    display.clear()
+    updateBullets()
+    display.set_pixel(playerX, 4, 9)
+    if enemyX is not None:
+        display.set_pixel(enemyX, 0, 9)
+    sleep(10)
+</code></pre>
+        </div>
+
+
+        <!-- Add the footer -->
+        <script src="reuse/footer.js"></script>
+
+    </div><!-- /container -->
+
+    </body>
+</html>
